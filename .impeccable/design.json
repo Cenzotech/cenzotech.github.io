@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T00:00:00+08:00",
+  "title": "Design System: Vincent Hajiron Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "canvas": { "role": "neutral", "displayName": "Midnight Canvas", "canonical": "#090b10" },
+      "surface": { "role": "neutral", "displayName": "Editor Surface", "canonical": "#10141d" },
+      "surface-raised": { "role": "neutral", "displayName": "Raised Editor Surface", "canonical": "#151b26" },
+      "ink": { "role": "neutral", "displayName": "Warm Ink", "canonical": "#f4f1e8" },
+      "muted": { "role": "neutral", "displayName": "Cool Slate", "canonical": "#9ca6b8" },
+      "faint": { "role": "neutral", "displayName": "Faint Slate", "canonical": "#626c7d" },
+      "line": { "role": "neutral", "displayName": "Structural Line", "canonical": "#27303d" },
+      "chartreuse": { "role": "primary", "displayName": "Electric Chartreuse", "canonical": "#b9f227" },
+      "sky": { "role": "secondary", "displayName": "Syntax Sky", "canonical": "#5ed3f3" },
+      "coral": { "role": "secondary", "displayName": "Signal Coral", "canonical": "#ff7a70" },
+      "lilac": { "role": "secondary", "displayName": "Active Lilac", "canonical": "#b7a3ff" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Hero Display", "purpose": "The primary human statement in the first viewport." },
+      "headline": { "displayName": "Section Headline", "purpose": "Major narrative section and closing statements." },
+      "title": { "displayName": "Case Title", "purpose": "Human-facing case and content titles." },
+      "body": { "displayName": "Editor Body", "purpose": "Explanatory copy and operational narrative." },
+      "label": { "displayName": "Editor Label", "purpose": "Tabs, metadata, categories, tags, controls, and status text." }
+    },
+    "shadows": [
+      { "name": "timeline-glow", "value": "0 0 18px currentColor", "purpose": "Restrained glow around syntax-colored timeline markers." },
+      { "name": "palette-float", "value": "0 24px 70px rgba(0, 0, 0, .55)", "purpose": "Separates the transient command palette from its backdrop." }
+    ],
+    "motion": [
+      { "name": "state-transition", "value": "200ms ease-out", "purpose": "Button color and translation feedback." },
+      { "name": "palette-enter", "value": "340ms cubic-bezier(.16, 1, .3, 1)", "purpose": "One-time palette translation, scale, blur, and opacity resolution." },
+      { "name": "backdrop-enter", "value": "240ms ease-out", "purpose": "Palette backdrop fade." },
+      { "name": "view-reveal", "value": "view() cubic-bezier(.16, 1, .3, 1), entry 8% cover 32%", "purpose": "Section content resolves upward as it enters the viewport, with later items staggered by range." },
+      { "name": "caret-blink", "value": "1100ms steps(1) infinite", "purpose": "Quiet hero caret pulse." },
+      { "name": "reduced-motion", "value": "0.01ms; reveal transform/filter disabled", "purpose": "Keeps content immediately visible and interactions usable." }
+    ],
+    "breakpoints": [
+      { "name": "document-flow", "value": "900px" },
+      { "name": "compact-controls", "value": "520px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "action-primary",
+      "description": "The decisive portfolio action with the authored directional arrow.",
+      "html": "<button class=\"ds-action ds-action-primary\">Read my work<svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M4 10h11M11 6l4 4-4 4\"/></svg></button>",
+      "css": ".ds-action{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-width:240px;height:52px;padding:0 22px;border:1px solid #b9f227;border-radius:5px;font:600 14px/1 'JetBrains Mono',monospace;cursor:pointer;transition:background-color .2s ease-out,color .2s ease-out,transform .2s ease-out}.ds-action-primary{background:#b9f227;color:#090b10}.ds-action svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-action:hover{transform:translateY(-2px)}.ds-action:focus-visible{outline:2px solid #b9f227;outline-offset:4px}"
+    },
+    {
+      "name": "Secondary Action",
+      "kind": "button",
+      "refersTo": "action-secondary",
+      "description": "A quieter action that keeps the editor surface visible.",
+      "html": "<button class=\"ds-action ds-action-secondary\">Email Vincent<svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M4 10h11M11 6l4 4-4 4\"/></svg></button>",
+      "css": ".ds-action{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;min-width:240px;height:52px;padding:0 22px;border:1px solid #27303d;border-radius:5px;background:transparent;color:#f4f1e8;font:600 14px/1 'JetBrains Mono',monospace;cursor:pointer;transition:background-color .2s ease-out,transform .2s ease-out}.ds-action svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.ds-action:hover{background:#151b26;transform:translateY(-2px)}.ds-action:focus-visible{outline:2px solid #b9f227;outline-offset:4px}"
+    },
+    {
+      "name": "Editor Tab",
+      "kind": "nav",
+      "description": "File-like navigation with a lilac active state.",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"Portfolio sections\"><button class=\"ds-tab ds-active\">ABOUT.md</button><button class=\"ds-tab\">WORK.json</button></nav>",
+      "css": ".ds-tabs{display:flex;height:56px;border-bottom:1px solid #27303d;background:#090b10;font-family:'JetBrains Mono',monospace}.ds-tab{min-width:152px;padding:0 24px;border:0;border-right:1px solid #27303d;background:transparent;color:#9ca6b8;font-size:13px;letter-spacing:.02em;cursor:pointer}.ds-tab:hover{background:#10141d;color:#f4f1e8}.ds-tab.ds-active{color:#b7a3ff;box-shadow:inset 0 -3px 0 #b7a3ff}.ds-tab:focus-visible{outline:2px solid #b9f227;outline-offset:-4px}"
+    },
+    {
+      "name": "Technology Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "A compact label for concrete tools and technologies.",
+      "html": "<span class=\"ds-tag\">Laravel</span>",
+      "css": ".ds-tag{display:inline-flex;border:1px solid #27303d;border-radius:999px;padding:8px 11px;background:transparent;color:#c9d3e2;font:11px/1 'JetBrains Mono',monospace}"
+    },
+    {
+      "name": "Ruled Work Row",
+      "kind": "custom",
+      "description": "The portfolio index pattern: numbered, factual, and part of the shared plane.",
+      "html": "<button class=\"ds-work-row\"><span class=\"ds-number\">01</span><strong>University systems</strong><span>Admission · enrollment · services</span><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M4 10h11M11 6l4 4-4 4\"/></svg></button>",
+      "css": ".ds-work-row{display:grid;grid-template-columns:44px minmax(140px,30%) 1fr 30px;gap:8px;align-items:center;width:100%;min-height:52px;padding:0 8px;border:0;border-top:1px solid #27303d;border-bottom:1px solid #27303d;background:transparent;color:#f4f1e8;text-align:left;cursor:pointer}.ds-work-row:hover{background:#10141d}.ds-work-row:focus-visible{outline:2px solid #b9f227;outline-offset:2px}.ds-number{color:#b9f227;font:600 15px/1 'JetBrains Mono',monospace}.ds-work-row strong{font:600 16px/1.3 'JetBrains Mono',monospace}.ds-work-row>span:nth-of-type(2){color:#9ca6b8;font:13px/1.4 'JetBrains Mono',monospace}.ds-work-row svg{width:19px;height:19px;fill:none;stroke:#9ca6b8;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}"
+    },
+    {
+      "name": "Command Search Field",
+      "kind": "input",
+      "refersTo": "command-field",
+      "description": "The focused entry point inside the keyboard-first command palette.",
+      "html": "<label class=\"ds-search\"><span>Go to…</span><input placeholder=\"Type a page or keyword…\" /></label>",
+      "css": ".ds-search{display:grid;gap:12px;color:#f4f1e8;font:600 16px/1 'JetBrains Mono',monospace}.ds-search input{width:100%;height:52px;padding:0 18px;border:1px solid #5ed3f3;border-radius:6px;outline:0;background:#090d14;color:#f4f1e8;font:14px/1 'JetBrains Mono',monospace;caret-color:#b9f227}.ds-search input::placeholder{color:#758197}.ds-search input:focus-visible{outline:2px solid #b9f227;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Living Editor",
+    "overview": "A dark editor workspace made human: technically precise, quietly warm, and grounded in real operational software. Editor anatomy provides orientation while bold Poppins statements keep Vincent's judgment in the foreground. Hairline rules, syntax accents, an authored arrow system, and a functioning command palette form one continuous, accessible world.",
+    "keyCharacteristics": [
+      "Near-black navy canvas with warm white ink and restrained syntax color.",
+      "Poppins for human statements; JetBrains Mono for operational detail and controls.",
+      "Ruled, edge-to-edge surfaces instead of generic floating cards.",
+      "Authored line-arrow SVGs for direction and destination.",
+      "Keyboard-first interaction with complete reduced-motion parity."
+    ],
+    "rules": [
+      { "name": "The Syntax Rationing Rule", "body": "Bright color is semantic, never atmospheric decoration.", "section": "colors" },
+      { "name": "The Two-Voice Rule", "body": "Poppins speaks for the person; JetBrains Mono speaks for the workspace.", "section": "typography" },
+      { "name": "The Ruled-Surface Rule", "body": "Persistent content stays on the shared editor plane and is separated with lines or tone.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do preserve exact palette values and the Poppins/JetBrains Mono role split.",
+      "Do keep the command palette keyboard-complete and restore trigger focus on close.",
+      "Do use the authored arrow SVG consistently.",
+      "Do retain full static clarity under reduced-motion preferences.",
+      "Do compress the editor into one readable flow at 900px without dropping content."
+    ],
+    "donts": [
+      "Don't add decorative stock imagery, fake code, or gratuitous neon.",
+      "Don't replace ruled rows with a generic rounded-card grid.",
+      "Don't use syntax accents interchangeably or overuse chartreuse.",
+      "Don't introduce extra font families, icon libraries, or arrow glyphs.",
+      "Don't make motion the only carrier of hierarchy, state, or visibility."
+    ]
+  }
+}

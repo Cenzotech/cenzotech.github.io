@@ -1,0 +1,7 @@
+node_modules/
+dist/
+test-results/
+.impeccable/engine/
+.impeccable/review/
+.impeccable/build/
+*.log
